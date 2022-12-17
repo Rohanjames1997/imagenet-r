@@ -170,7 +170,7 @@ class FolderWithPath():
             # if self.transform is not None:
             #     sample = self.transform(sample)
 
-            save_path = './CAE/' + str(target)
+            save_path = './CAE/' + str(target.item()) + '/'
 
             if not os.path.exists(save_path):
                 os.makedirs(save_path)
@@ -184,8 +184,9 @@ class FolderWithPath():
 
             with torch.no_grad():
                 img = trnF.to_pil_image(net(image.cuda()).squeeze().to('cpu').clamp(0, 1))
-            print("Saving image now")
+            # print("Saving image now")
             img.save(save_path)
+            i += 1
 
         return 0
 
