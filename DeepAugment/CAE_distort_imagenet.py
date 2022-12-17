@@ -166,7 +166,7 @@ class FolderWithPath():
         # sample = self.loader(path)
         i = 0
         print("Running the data loader now")
-        for image, target in self.loader:
+        for image, target in tqdm(self.loader):
             # if self.transform is not None:
             #     sample = self.transform(sample)
 
