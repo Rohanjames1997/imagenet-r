@@ -183,7 +183,7 @@ class FolderWithPath():
                 net.eval()
 
             with torch.no_grad():
-                img = trnF.to_pil_image(net(image.unsqueeze(0).cuda()).squeeze().to('cpu').clamp(0, 1))
+                img = trnF.to_pil_image(net(image.cuda()).squeeze().to('cpu').clamp(0, 1))
             print("Saving image now")
             img.save(save_path)
 
