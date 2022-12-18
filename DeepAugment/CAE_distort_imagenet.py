@@ -170,7 +170,7 @@ class FolderWithPath():
             # if self.transform is not None:
             #     sample = self.transform(sample)
 
-            save_path = './CAE/' + str(target.item()) + '/'
+            save_path = './CAE_Train/' + str(target.item()) + '/'
 
             if not os.path.exists(save_path):
                 os.makedirs(save_path)
@@ -200,7 +200,7 @@ preprocess = transforms.Compose([
                              std=[0.229, 0.224, 0.225])
     ])
 cifar_dataset = CIFAR100("./data/", transform=test_transform,
-                             download=True, train=False)
+                             download=True, train=True)
 cifar_loader = torch.utils.data.DataLoader(cifar_dataset, batch_size=1, shuffle=True)
 distored_dataset = FolderWithPath(cifar_loader)
 distored_dataset.run_distortion()
